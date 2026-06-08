@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shakti Sagar Mohapatra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #111;
+  --fg: #e8e6e1;
+  --muted: #666;
+  --line: #2a2a2a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+section:last-of-type { border-bottom: none; }
+
+/* ── NAV ── */
+nav {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-name {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.nav-links a:hover { color: var(--fg); text-decoration: none; }
+
+/* ── HERO ── */
+.hero { padding: 96px 0 72px; }
+
+.hero-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.hero-bio {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-meta span::before {
+  content: '→ ';
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+/* ── EXPERIENCE ── */
+.exp-list { display: flex; flex-direction: column; gap: 0; }
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.exp-item:first-child { padding-top: 0; }
+.exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.exp-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  padding-top: 3px;
+}
+
+.exp-role {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.exp-org {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.exp-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── PROJECTS ── */
+.proj-list { display: flex; flex-direction: column; gap: 0; }
+
+.proj-item {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.proj-item:first-child { padding-top: 0; }
+.proj-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.proj-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.proj-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.proj-type {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.proj-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 14px;
+  max-width: 520px;
+}
+
+.proj-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--fg);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.proj-link:hover { color: var(--muted); }
+
+/* ── SKILLS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.skill-group {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-group:nth-child(odd) { padding-right: 40px; }
+.skill-group:nth-child(even) { padding-left: 40px; border-left: 1px solid var(--line); }
+.skill-group:nth-last-child(-n+2) { border-bottom: none; }
+
+.skill-group-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.skill-group ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skill-group li {
+  font-size: 13px;
+  color: var(--fg);
+}
+
+/* ── CONTACT ── */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-row:first-child { padding-top: 0; }
+.contact-row:last-child { border-bottom: none; }
+
+.contact-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contact-val {
+  font-size: 14px;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-inner p {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.avail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3a3;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 560px) {
+  .exp-item { grid-template-columns: 1fr; gap: 4px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-group:nth-child(even) { border-left: none; padding-left: 0; }
+  .skill-group:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .skill-group:last-child { border-bottom: none; }
+  .nav-links { display: none; }
+  .hero-meta { flex-direction: column; gap: 8px; }
+  .footer-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-name">Shakti Sagar Mohapatra</span>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-label">Game Designer · QA Tester · Community Manager</p>
+    <h1>Building games,<br>testing them properly,<br><em>and keeping players happy.</em></h1>
+    <p class="hero-bio">
+      UE5 developer and QA tester based in Bhubaneswar, India. I've tested titles with 1.5M+ peak players, built game systems from scratch in Blueprint, and managed a Discord community. Currently studying CS at OUTR.
+    </p>
+    <div class="hero-meta">
+      <span>Remote</span>
+      <span>10+ hrs / week</span>
+      <span>Available now</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="work">
+    <p class="section-label">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-year">2023–24</div>
+        <div>
+          <p class="exp-role">QA Tester</p>
+          <p class="exp-org">Credenzio Studios — Lionheart's Crusade (Roblox)</p>
+          <p class="exp-desc">Stress and QA testing for a title that reached 1.5M+ peak visits. Documented bugs, physics issues, and UI glitches across multiple release cycles and worked directly with devs to verify fixes.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2023–24</div>
+        <div>
+          <p class="exp-role">Independent QA Tester</p>
+          <p class="exp-org">Swarm Me (Steam) · Mad Rat Café (Itch.io)</p>
+          <p class="exp-desc">Functional and regression testing for indie developers. Covered edge cases, collision errors, and progression blockers. Delivered reproducible reports that helped ship stable builds.</p>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2024–</div>
+        <div>
+          <p class="exp-role">Discord Server Manager</p>
+          <p class="exp-org">Total War Creator Community</p>
+          <p class="exp-desc">Managing and moderating an active Discord for a Total War content creator. Handle channel structure, engagement, and community events to keep the audience active between releases.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <div class="proj-list">
+
+      <div class="proj-item">
+        <div class="proj-top">
+          <span class="proj-name">Horror Environment</span>
+          <span class="proj-year">2025</span>
+        </div>
+        <p class="proj-type">Unreal Engine 5 · Environment Design</p>
+        <p class="proj-desc">An atmospheric horror environment built to practice world building and lighting. No gameplay — purely focused on making a space feel unsettling through volumetric fog, terrain sculpting, and moonlight.</p>
+        <a href="https://drive.google.com/file/d/1mdCVNpNQe3ZIdaQVwOQaYYcpmAyb-ePW/view" target="_blank" class="proj-link">View video →</a>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-top">
+          <span class="proj-name">BladesOfKandy — Swimming System</span>
+          <span class="proj-year">2025</span>
+        </div>
+        <p class="proj-type">Unreal Engine 5 · Gameplay Systems · Blueprint</p>
+        <p class="proj-desc">A playable coastal level with a custom swimming system built from scratch. The player can run, swim, and dive — with animations switching states automatically via an animation blueprint. Includes underwater visuals and a health bar UI.</p>
+        <a href="https://drive.google.com/file/d/1AMyoAc0OPZhzqhD_iIcTj1NNrKpp9wqM/view" target="_blank" class="proj-link">View video →</a>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">Skills</p>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <p class="skill-group-title">Game Dev</p>
+        <ul>
+          <li>Unreal Engine 5</li>
+          <li>Blueprint Scripting</li>
+          <li>Level Design</li>
+          <li>World Building</li>
+          <li>Environment Art</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-group-title">QA Testing</p>
+        <ul>
+          <li>Functional Testing</li>
+          <li>Regression Testing</li>
+          <li>Bug Documentation</li>
+          <li>Player Experience</li>
+          <li>Edge Case Coverage</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-group-title">Programming</p>
+        <ul>
+          <li>C++</li>
+          <li>C</li>
+          <li>Python</li>
+          <li>CUDA / PyCUDA</li>
+          <li>Git / GitHub</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <p class="skill-group-title">Community</p>
+        <ul>
+          <li>Discord Management</li>
+          <li>Moderation</li>
+          <li>Community Events</li>
+          <li>Async Workflows</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-list">
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <span class="contact-val"><a href="mailto:mshakti166@gmail.com">mshakti166@gmail.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-val"><a href="https://github.com/sh6k" target="_blank">github.com/sh6k</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Location</span>
+        <span class="contact-val">Bhubaneswar, India</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Availability</span>
+        <span class="contact-val">Remote · 10+ hrs/week</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Shakti Sagar Mohapatra</p>
+      <div class="avail">
+        <div class="dot"></div>
+        Available for remote work
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
